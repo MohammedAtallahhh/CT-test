@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <title>LA Mountains</title>
+</head>
+
+<body>
+    <!-- Header section -->
+    <header id="header">
+        <nav class="nav">
+            <div class="container">
+                <h2 class="nav__logo">
+                    <a href="/">
+                        <img src="images/Logo.png" alt="logo">
+                    </a>
+                </h2>
+
+                <ol class="nav__list">
+                    <li class="nav__list__item">
+                        <a href="#history" class="nav__list__link">history</a>
+                    </li>
+                    <li class="nav__list__item">
+                        <a href="#team" class="nav__list__link">team</a>
+
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Sticky Nav -->
+        <nav class="nav sticky-nav">
+            <div class="container">
+                <h2 class="nav__logo">
+                    <a href="/">
+                        <img src="images/logo2.png" alt="logo">
+                    </a>
+                </h2>
+
+                <ol class="nav__list">
+                    <li class="nav__list__item">
+                        <a href="#history" class="nav__list__link">history</a>
+                    </li>
+                    <li class="nav__list__item">
+                        <a href="#team" class="nav__list__link">team</a>
+
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
+        <div class="sections">
+            <!-- History -->
+            <section id="history">
+                <div class="container">
+
+                    <h3 class="history__title numbered">history</h3>
+                    <p class="history__info">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil, est
+                        temporibus. Ullam ea quibusdam quaerat sit deleniti eius aliquam consequatur rem, non quas
+                        impedit ipsa provident velit nisi voluptatem molestiae ex voluptas culpa nulla? Quisquam velit
+                        eaque aliquam, aperiam animi earum dolorum vel, rem neque minima sequi quas, dolor similique.
+                    </p>
+
+                    <div class="history__slider">
+                        <div class="container">
+                            <div class="slider__inner">
+                                <div class="slides">
+                                    <div class="slide">
+                                        <img src="./images/slider-1.png" alt="A man standing on an edge of mountain">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="./images/slider-2.png" alt="Some Mountain">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="./images/slider-1.png" alt="A man standing on an edge of mountain">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="./images/slider-2.png" alt="Some Mountain">
+                                    </div>
+                                </div>
+
+                                <div class="circle-nav">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- History -->
+
+
+            <!-- Team -->
+            <section id="team">
+                <header>
+                    <div class="container">
+                        <h3 class="team__title numbered">climb</h3>
+                        <p class="team__info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam vitae animi
+                            placeat eius
+                            ratione neque cumque, minus corrupti aliquam libero ducimus voluptas incidunt unde dolores?
+                        </p>
+                    </div>
+                </header>
+
+                <div class="tabs-section">
+                    <div class="tabs">
+                        <div class="container">
+                            <button class="tab active" data-index="1">mountain 1</button>
+                            <button class="tab" data-index="2">mountain 2</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-contents">
+                        <!-- Mountain 1 -->
+                        <div class="tab-content mountain-1 active" data-index="1">
+                            <div class="container">
+
+                                <div class="content">
+                                    <h5>schedule</h5>
+
+                                    <div class="info">
+                                        <span class="date">25 Nov 2016</span>
+                                        <span class="location">Vestibulum Viverra</span>
+                                    </div>
+                                    <div class="info">
+                                        <span class="date">28 Nov 2016</span>
+                                        <span class="location">Vestibulum Viverra</span>
+                                    </div>
+                                    <div class="info">
+                                        <span class="date">18 Dec 2016</span>
+                                        <span class="location">Vestibulum Viverra</span>
+                                    </div>
+                                    <div class="info">
+                                        <span class="date">7 Jan 2017</span>
+                                        <span class="location">Vestibulum Viverra</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Mountain 2 -->
+
+                        <!-- Mountain 2 -->
+                        <div class="tab-content mountain-2" data-index="2">
+                            <div class="container">
+                                <div class="content">
+                                    <h5>schedule</h5>
+
+                                    <div class="info">
+                                        <span class="date">17 Nov 2016</span>
+                                        <span class="location">Vestibulum Viverra</span>
+                                    </div>
+                                    <div class="info">
+                                        <span class="date">13 Dec 2016 </span>
+                                        <span class="location">Vestibulum Viverra</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mountain 2 -->
+
+                    </div>
+                </div>
+            </section>
+            <!-- Team -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+
+            <img src="./images/logo2.png" alt="logo">
+            <p>COPYRIGHT 2016. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
