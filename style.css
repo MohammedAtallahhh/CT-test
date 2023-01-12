@@ -11,7 +11,8 @@ html {
   box-sizing: border-box;
   font-size: 10px;
   scroll-behavior: smooth;
-  scroll-padding-top: 8rem;
+  /* Sticky nav height */
+  scroll-padding-top: 7.8rem;
 }
 
 body {
@@ -40,6 +41,12 @@ button {
   border: 0;
   outline: 0;
   cursor: pointer;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 /*====================
 ============== HELPERS
@@ -91,13 +98,19 @@ button {
 
 nav {
   color: white;
-  height: 8rem;
+  padding: 2rem 0;
 }
 
 .nav > .container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
+}
+
+.nav__logo__text {
+  width: 12rem;
 }
 
 .nav__list {
@@ -109,10 +122,21 @@ nav {
   position: relative;
   counter-increment: number;
 
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-style: italic;
   text-transform: uppercase;
 }
+
+@media (min-width: 768px) {
+  .nav__list__link {
+    font-size: 1.6rem;
+  }
+
+  .nav__logo__text {
+    width: 14rem;
+  }
+}
+
 .nav__list__link::before {
   content: "0" counter(number) ".";
   margin-right: 0.25rem;
@@ -122,11 +146,17 @@ nav {
   content: "";
   position: absolute;
   left: 0;
-  right: 0;
+  width: 100%;
   bottom: -2px;
   height: 2px;
 
   background-color: currentColor;
+
+  transition: 100ms ease;
+}
+
+.nav__list__link:hover::after {
+  height: 0;
 }
 
 .sticky-nav {
@@ -169,8 +199,10 @@ nav {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 20rem;
+  height: 24rem;
   background-color: rgba(65, 79, 107, 0.8);
+  overflow-x: hidden;
+  user-select: none;
 }
 
 .slider__inner {
@@ -178,17 +210,24 @@ nav {
   display: flex;
   align-items: center;
 
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  width: 220px;
+  margin: 0 auto;
 }
 
-.slides {
+.slider__inner .slides {
   display: flex;
   gap: 1rem;
+  transition: translate 100ms ease;
+}
+
+.slider__inner .slide {
+  flex-shrink: 0;
 }
 
 .circle-nav {
   display: flex;
-  gap: 0.5rem;
+  gap: 1.5rem;
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
@@ -196,8 +235,8 @@ nav {
 }
 
 .circle-nav .dot {
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
   background: white;
   opacity: 0.2;
   border-radius: 50%;
@@ -208,13 +247,29 @@ nav {
   opacity: 1;
 }
 
+@media (min-width: 768px) {
+  .history__slider {
+    height: 20rem;
+  }
+
+  .circle-nav {
+    gap: 1rem;
+    bottom: 1rem;
+  }
+
+  .circle-nav .dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
 /*===============
 ============ TEAM 
 =================*/
 
 #team header {
   background: white;
-  padding: 7rem 0;
+  padding: 10rem 0;
 }
 
 #team header > .container {
@@ -266,7 +321,8 @@ nav {
   color: inherit;
 }
 
-.tab.active {
+.tab.active,
+.tab:hover {
   text-decoration: underline 2px;
   text-underline-offset: 3px;
   background: #b0b4be;
@@ -299,9 +355,11 @@ nav {
   width: fit-content;
 
   padding: 1.5rem 4rem;
+  box-shadow: 2px 4px 10px rgba(255, 255, 255, 0.2);
 }
 
-.tab-content .content h5 {
+.tab-content .content h5,
+.accordion-item__panel h5 {
   font-family: Oswald, sans-serif;
   font-size: 3.2rem;
   text-transform: uppercase;
@@ -311,12 +369,14 @@ nav {
   color: #414f6b;
 }
 
-.tab-content .content .info {
+.tab-content .content .info,
+.accordion-item__panel .info {
   color: #333;
   margin-bottom: 0.5rem;
 }
 
-.tab-content .content .info:nth-of-type(n + 2) {
+.tab-content .content .info:nth-of-type(n + 2),
+.accordion-item__panel .info:nth-of-type(n + 2) {
   margin-bottom: 2rem;
 }
 
@@ -325,13 +385,93 @@ nav {
   width: 140px;
 }
 
+/*======================
+================ Accordion
+====================*/
+.accordion > .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-item__button {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #3c4964;
+
+  width: 100%;
+
+  background: #4c5b79;
+  color: #b0b4be;
+  padding: 2rem;
+
+  font-size: 2rem;
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: left;
+
+  transition: 0.4s;
+}
+
+.accordion-item__button:after {
+  content: "\002B"; /* Unicode character for "plus" sign (+) */
+  color: inherit;
+  position: absolute;
+  right: 2rem;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+
+  font-size: 3rem;
+  margin-left: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accordion-item__panel {
+  max-height: 0;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: left top;
+
+  transition: max-height 0.4s ease-out;
+}
+
+.accordion-item__panel.panel-1 {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("./images/mountain-1.png");
+}
+
+.accordion-item__panel.panel-2 {
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.815),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("./images/mountain-2.png");
+}
+
+.accordion-item__panel.active {
+  padding: 2rem;
+  max-height: 100%;
+}
+
 /*========================
 ================== FOOTER 
 =======================*/
 footer {
   background: #414f6b;
   color: #63769d;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
 }
 
 footer .container {
@@ -343,7 +483,14 @@ footer .container {
 }
 
 footer p {
+  font-size: 1.3rem;
   font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  footer p {
+    font-size: 1.6rem;
+  }
 }
 
 @keyframes fade {

@@ -39,7 +39,7 @@
         <!-- Sticky Nav -->
         <nav class="nav sticky-nav">
             <div class="container">
-                <h2 class="nav__logo">
+                <h2 class="nav__logo__text">
                     <a href="/">
                         <img src="images/logo2.png" alt="logo">
                     </a>
@@ -88,10 +88,10 @@
                                 </div>
 
                                 <div class="circle-nav">
-                                    <span class="dot active"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
+                                    <span class="dot" data-index="0"></span>
+                                    <span class="dot" data-index="1"></span>
+                                    <span class="dot active" data-index="2"></span>
+                                    <span class="dot" data-index="3"></span>
                                 </div>
                             </div>
                         </div>
@@ -172,6 +172,54 @@
 
                     </div>
                 </div>
+
+                <!-- Accordion -->
+                <div class="accordion">
+                    <!-- <div class="container"> -->
+
+                    <div class="accordion-item">
+                        <button class="accordion-item__button">mountain 1</button>
+                        <div class="accordion-item__panel panel-1" style="max-height: 209px; padding: 2rem;">
+                            <h5>schedule</h5>
+
+                            <div class="info">
+                                <span class="date">25 Nov 2016</span>
+                                <span class="location">Vestibulum Viverra</span>
+                            </div>
+                            <div class="info">
+                                <span class="date">28 Nov 2016</span>
+                                <span class="location">Vestibulum Viverra</span>
+                            </div>
+                            <div class="info">
+                                <span class="date">18 Dec 2016</span>
+                                <span class="location">Vestibulum Viverra</span>
+                            </div>
+                            <div class="info">
+                                <span class="date">7 Jan 2017</span>
+                                <span class="location">Vestibulum Viverra</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-item__button">mountain 2</button>
+                        <div class="accordion-item__panel panel-2">
+                            <h5>schedule</h5>
+
+                            <div class="info">
+                                <span class="date">17 Nov 2016</span>
+                                <span class="location">Vestibulum Viverra</span>
+                            </div>
+                            <div class="info">
+                                <span class="date">13 Dec 2016 </span>
+                                <span class="location">Vestibulum Viverra</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
+                <!-- Accordion -->
+
             </section>
             <!-- Team -->
         </div>
@@ -179,8 +227,9 @@
 
     <footer>
         <div class="container">
-
-            <img src="./images/logo2.png" alt="logo">
+            <div class="nav__logo__text">
+                <img src="./images/logo2.png" alt="logo">
+            </div>
             <p>COPYRIGHT 2016. ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
